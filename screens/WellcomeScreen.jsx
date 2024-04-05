@@ -23,6 +23,7 @@ export default function WellcomeScreen() {
     setTimeout(() => navigaton.navigate('Home'), 2500)
   }, [])
   return (
+
     <View className="flex-1 items-center justify-center space-y-10 bg-zinc-900 ">
       <StatusBar style='light' />
       <Animated.View className="rounded-full bg-white/20" style={{ padding: ring2padding }}>
