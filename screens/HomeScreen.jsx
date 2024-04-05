@@ -1,10 +1,14 @@
-import React from 'react'
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { MapPinIcon } from 'react-native-heroicons/solid'
 import { BellIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline'
+import { categories } from '../constants'
 export default function HomeScreen() {
+
+    const [activeCategory, setActiveCategory] = useState(1)
+
     return (
         <View className="flex-1 relative  bg-zinc-900 ">
             <StatusBar style='light' />
@@ -25,6 +29,7 @@ export default function HomeScreen() {
                     <BellIcon size='30' color='white' />
                 </View>
 
+                {/* text head */}
                 <View className="mt-8 px-4 w-80">
                     <Text className="text-orange-300 text-4xl font-bold tracking-widest ">
                         <Text className="text-white">Finde the best</Text> Coffee for you
@@ -33,14 +38,41 @@ export default function HomeScreen() {
 
                 {/* search bar */}
                 <View className="mx-4 mt-8">
-                    <View className="flex-row justify-center items-center rounded-full p-1 bg-gray-300">
-                        <TextInput placeholder='search...' className="p-4 flex-1 font-semibold text-xl" />
-                        <TouchableOpacity className="p-4 rounded-full bg-orange-300">
-                            <MagnifyingGlassIcon size='25' strokeWidth={4} color='white' />
+                    <View className="flex-row justify-center items-center rounded-full p-1 bg-white">
+                        <TextInput placeholder='search...' className="p-2 flex-1 font-semibold text-base" />
+                        <TouchableOpacity className="p-3 rounded-full bg-orange-300">
+                            <MagnifyingGlassIcon size='25' strokeWidth={2} color='white' />
                         </TouchableOpacity>
                     </View>
                 </View>
-            </SafeAreaView>
-        </View>
+
+                {/* CATEGORY */}
+
+                <View className="px-4 mt-6">
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={categories}
+                        keyExtractor={item => item.id}
+                        className="overflow-visible"
+                        renderItem={({ item }) => {
+                            let isActive = item.id == activeCategory
+                            let activeTextClass = isActive ? 'text-white' : 'text-gray-700'
+                            return (
+                                <TouchableOpacity
+                                    style={{ backgroundColor: isActive ? '#10B981' : '#D1D5DB' }}
+                                    onPress={() => setActiveCategory(item.id)}
+                                    className="p-4 px-4 rounded-full mr-2 shadow">
+
+                                    <Text className={"font-semibol " + activeTextClass}>
+                                        {item.title}
+                                    </Text>
+                                </TouchableOpacity>
+                            )
+                        }}
+                    />
+                </View>
+            </SafeAreaView >
+        </View >
     )
 }
