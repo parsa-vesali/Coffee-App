@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { View, Text, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import { View, Text, Image, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { MapPinIcon } from 'react-native-heroicons/solid'
-import { BellIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline'
-import { categories } from '../constants'
+import { BellIcon, MagnifyingGlassIcon, StarIcon } from 'react-native-heroicons/outline'
+import { categories, coffeeItems } from '../constants'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { BlurView } from 'expo-blur';
 export default function HomeScreen() {
 
     const [activeCategory, setActiveCategory] = useState(1)
@@ -12,7 +14,7 @@ export default function HomeScreen() {
     return (
         <View className="flex-1 relative bg-slate-950 ">
             <StatusBar style='light' />
-            <SafeAreaView className="flex-1">
+            <ScrollView className="flex-1 mt-5">
 
 
                 {/* avatar and bell icon */}
@@ -72,7 +74,43 @@ export default function HomeScreen() {
                         }}
                     />
                 </View>
-            </SafeAreaView >
+
+                {/* COFFE'E PRODUCT */}
+                <View className="mt-8 px-4 flex-row flex-wrap justify-between ">
+                    {
+                        coffeeItems.map(item => (
+                            <View key={item.id} className="mb-5 rounded-xl overflow-hidden">
+                                <BlurView style={{ padding: hp(1) }} intensity={95} tint='dark' >
+                                    <TouchableOpacity >
+                                        <Image source={item.image} className="rounded-xl" style={{ height: hp(19), width: hp(19) }} />
+                                        <View className="absolute ring-0 rounded-xl overflow-hidden">
+                                            <BlurView className="flex-row" style={{ padding: hp(.5) }} tint='dark' intensity={70}>
+                                                <StarIcon size={25} color='#FDBA74' />
+                                                <Text className="text-white mx-2">{item.rating}</Text>
+                                            </BlurView>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <Text
+                                        className="text-white font-semibold my-2"
+                                        style={{ fontSize: hp(2.2) }}
+                                        numberOfLines={2}
+                                    >
+                                        {item.name}
+                                    </Text>
+                                    <Text
+                                        className="text-gray-400"
+                                        style={{ fontSize: hp(1.6) }}
+                                        numberOfLines={1}
+                                    >
+                                        {item.des}
+                                    </Text>
+                                </BlurView>
+                            </View>
+                        ))
+                    }
+
+                </View>
+            </ScrollView >
         </View >
     )
 }
