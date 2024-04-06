@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, Image, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { MapPinIcon } from 'react-native-heroicons/solid'
+import { MapPinIcon, PlusIcon } from 'react-native-heroicons/solid'
 import { BellIcon, MagnifyingGlassIcon, StarIcon } from 'react-native-heroicons/outline'
 import { categories, coffeeItems } from '../constants'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -33,7 +33,7 @@ export default function HomeScreen() {
 
                 {/* text head */}
                 <View className="mt-8 px-4 w-80">
-                    <Text className="text-orange-300 text-4xl font-bold tracking-widest ">
+                    <Text className="text-orange-400 text-4xl font-bold tracking-widest ">
                         <Text className="text-white">Find the best</Text> Coffee for you
                     </Text>
                 </View>
@@ -42,7 +42,7 @@ export default function HomeScreen() {
                 <View className="mx-4 mt-8">
                     <View className="flex-row justify-center items-center rounded-full p-1 bg-white">
                         <TextInput placeholder='search...' className="p-2 flex-1 font-semibold text-base" />
-                        <TouchableOpacity className="p-3 rounded-full bg-orange-300">
+                        <TouchableOpacity className="p-3 rounded-full bg-orange-400">
                             <MagnifyingGlassIcon size='25' strokeWidth={2} color='white' />
                         </TouchableOpacity>
                     </View>
@@ -62,7 +62,7 @@ export default function HomeScreen() {
                             let activeTextClass = isActive ? 'text-white' : 'text-gray-700'
                             return (
                                 <TouchableOpacity
-                                    style={{ backgroundColor: isActive ? '#10B981' : '#D1D5DB' }}
+                                    style={{ backgroundColor: isActive ? '#fb923c' : '#D1D5DB' }}
                                     onPress={() => setActiveCategory(item.id)}
                                     className="p-4 px-4 rounded-full mr-2 shadow">
 
@@ -104,6 +104,16 @@ export default function HomeScreen() {
                                     >
                                         {item.des}
                                     </Text>
+                                    <View className="my-1 flex-row justify-between items-center">
+                                        <View className="flex-row" >
+                                            <Text className="text-lg text-orange-400 mr-2">$</Text>
+                                            <Text className="text-white text-lg">{item.price}</Text>
+                                        </View>
+                                        <TouchableOpacity className="p-1 bg-orange-400 rounded-lg">
+                                            <PlusIcon color="#fff" size={25} />
+                                        </TouchableOpacity>
+                                    </View>
+
                                 </BlurView>
                             </View>
                         ))

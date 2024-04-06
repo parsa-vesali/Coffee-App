@@ -48,7 +48,7 @@ export const coffeeItems = [
         id: 3,
         name: 'Latte',
         price: '22.50',
-        image: require('../assets/image/latte-1.jpg'),
+        image: require('../assets/image/latte-3.jpg'),
         rating: 2.5,
         des: 'width Oat Mlik'
 
