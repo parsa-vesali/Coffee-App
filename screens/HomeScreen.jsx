@@ -10,7 +10,7 @@ export default function HomeScreen() {
     const [activeCategory, setActiveCategory] = useState(1)
 
     return (
-        <View className="flex-1 relative  bg-zinc-900 ">
+        <View className="flex-1 relative bg-slate-950 ">
             <StatusBar style='light' />
             <SafeAreaView className="flex-1">
 
@@ -32,7 +32,7 @@ export default function HomeScreen() {
                 {/* text head */}
                 <View className="mt-8 px-4 w-80">
                     <Text className="text-orange-300 text-4xl font-bold tracking-widest ">
-                        <Text className="text-white">Finde the best</Text> Coffee for you
+                        <Text className="text-white">Find the best</Text> Coffee for you
                     </Text>
                 </View>
 

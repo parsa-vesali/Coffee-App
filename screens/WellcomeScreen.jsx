@@ -24,11 +24,11 @@ export default function WellcomeScreen() {
   }, [])
   return (
 
-    <View className="flex-1 items-center justify-center space-y-10 bg-zinc-900 ">
+    <View className="flex-1 items-center justify-center space-y-10 bg-slate-950  ">
       <StatusBar style='light' />
       <Animated.View className="rounded-full bg-white/20" style={{ padding: ring2padding }}>
         <Animated.View className="rounded-full bg-white/20" style={{ padding: ring1padding }}>
-          <Image source={require('../assets/image/app-logo.png')} style={{ width: hp(10), height: hp(10) }} />
+          <Image className="rounded-full" source={require('../assets/image/cup-coffee.png')} style={{ width: hp(10), height: hp(10) }} />
         </Animated.View>
       </Animated.View >
 
