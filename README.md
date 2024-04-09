@@ -15,5 +15,8 @@ I made this project with `React Native` and used `Tailwind` next to it
 
 
 ## 💻 preview :
-<img src="https://github.com/parsa-vesali/Coffee-App/blob/main/demo-1.jpg" data-canonical-src="https://github.com/parsa-vesali/Coffee-App/blob/main/demo-2.jpg" width="200" height="400" />
+<div display="flex">
+<img src="https://github.com/parsa-vesali/Coffee-App/blob/main/demo-1.jpg" width="200" height="400" />
+<img src="https://github.com/parsa-vesali/Coffee-App/blob/main/demo-2.jpg" width="200" height="400" />
+</div>
 
