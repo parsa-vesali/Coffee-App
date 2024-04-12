@@ -7,10 +7,11 @@ import { BellIcon, MagnifyingGlassIcon, StarIcon } from 'react-native-heroicons/
 import { categories, coffeeItems } from '../constants'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { BlurView } from 'expo-blur';
+import { useNavigation } from "@react-navigation/native";
 export default function HomeScreen() {
 
     const [activeCategory, setActiveCategory] = useState(1)
-
+    const navigation = useNavigation()
     return (
         <View className="flex-1 relative bg-slate-950 ">
             <StatusBar style='light' />
@@ -20,10 +21,12 @@ export default function HomeScreen() {
                 {/* avatar and bell icon */}
 
                 <View className="px-4 mt-4 flex-row justify-between items-center">
-                    <Image
-                        source={require('../assets/image/avatar.jpg')}
-                        className="h-10 w-10 rounded-full"
-                    />
+                    <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                        <Image
+                            source={require('../assets/image/avatar.jpg')}
+                            className="h-10 w-10 rounded-full"
+                        />
+                    </TouchableOpacity>
                     <View className="flex-row items-center space-x-1 ">
                         <MapPinIcon size='25' color='#FDBA74' />
                         <Text className="text-xl font-semibold text-white">Iran , Tehran</Text>
@@ -109,7 +112,9 @@ export default function HomeScreen() {
                                             <Text className="text-lg text-orange-400 mr-2">$</Text>
                                             <Text className="text-white text-lg">{item.price}</Text>
                                         </View>
-                                        <TouchableOpacity className="p-1 bg-orange-400 rounded-lg">
+                                        <TouchableOpacity
+                                            onPress={() => navigation.navigate('Product', { ...item })}
+                                            className="p-1 bg-orange-400 rounded-lg">
                                             <PlusIcon color="#fff" size={25} />
                                         </TouchableOpacity>
                                     </View>
