@@ -1,15 +1,14 @@
-import { View, Text, TouchableOpacity, ImageBackground, StatusBar, Image } from 'react-native'
+import { View, Text, TouchableOpacity, ImageBackground, StatusBar, Image, ScrollView } from 'react-native'
 import React from 'react'
-import { ChevronLeftIcon, BellIcon } from "react-native-heroicons/outline";
+import { ChevronLeftIcon, BellIcon, UserIcon, ChevronRightIcon, ShieldCheckIcon, PaintBrushIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
-
+import { setting, general } from '../constants/index'
 const ProfileScreen = () => {
     const navigation = useNavigation()
 
     return (
-        <View className=' px-4 flex-1 relative bg-slate-950 '>
+        <ScrollView className=' px-4 flex-1 relative bg-slate-950 '>
             <StatusBar style='light' />
 
             {/* BACK ICON AND NOTIFICATION ICON */}
@@ -51,7 +50,7 @@ const ProfileScreen = () => {
                 <View className="mt-6 flex-row justify-between items-center flex-wrap">
                     <View style={{ width: hp(21) }} className=" h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
                         <Image className='w-10 h-10' source={require('../assets/image/add.png')} />
-                        <Text className="text-white text-lg font-bold">Invite 2 people</Text>
+                        <Text className="text-white text-lg font-bold">Invite 2people</Text>
                     </View>
                     <View style={{ width: hp(21) }} className=" h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
                         <Image className='w-10 h-10' source={require('../assets/image/coffee-cup (1).png')} />
@@ -67,7 +66,65 @@ const ProfileScreen = () => {
                     </View>
                 </View>
             </View>
-        </View>
+
+            {/* Settigs */}
+
+            <View className="mt-4">
+                <Text className="text-white text-2xl">Setting :</Text>
+                <View className="mt-4">
+
+                    {
+                        setting.map(item => (
+                            <TouchableOpacity key={item.id} className="justify-between flex-row-reverse items-center mb-5">
+                                <View>
+                                    <ChevronRightIcon color='#d1d5db' size={25} />
+                                </View>
+                                <View className=" flex-row items-center">
+                                    <View className="bg-sky-600 rounded-full w-12 h-12 items-center justify-center mr-3">
+                                        {item.icon}
+                                    </View>
+                                    <View>
+                                        <Text className="text-white text-lg ">{item.title}</Text>
+                                        <Text className="text-gray-300 text-sm">{item.subtitle}</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+
+                        ))
+                    }
+
+
+                </View>
+            </View>
+            <View className="mt-4">
+                <Text className="text-white text-2xl">General :</Text>
+                <View className="mt-4">
+
+                    {
+                        general.map(item => (
+                            <TouchableOpacity key={item.id} className="justify-between flex-row-reverse items-center mb-5">
+                                <View>
+                                    <ChevronRightIcon color='#d1d5db' size={25} />
+                                </View>
+                                <View className=" flex-row items-center">
+                                    <View className="bg-sky-600 rounded-full w-12 h-12 items-center justify-center mr-3">
+                                        {item.icon}
+                                    </View>
+                                    <View>
+                                        <Text className="text-white text-lg ">{item.title}</Text>
+                                        <Text className="text-gray-300 text-sm">{item.subtitle}</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+
+                        ))
+                    }
+
+
+                </View>
+            </View>
+
+        </ScrollView>
 
     )
 }

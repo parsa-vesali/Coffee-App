@@ -1,3 +1,14 @@
+import { PiSnapchatLogo } from 'react-icons/pi'
+import {
+    UserIcon,
+    BellIcon,
+    ShieldCheckIcon,
+    PaintBrushIcon,
+    RocketLaunchIcon,
+    GiftIcon,
+    QuestionMarkCircleIcon,
+} from 'react-native-heroicons/outline'
+
 export const categories = [
     {
         id: 1,
@@ -117,3 +128,52 @@ export const coffeeItems = [
 
     },
 ]
+
+export const setting = [
+    {
+        id: 1,
+        title: 'Account',
+        subtitle: 'settig , profile , login',
+        icon: <UserIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+    {
+        id: 2,
+        title: 'Security',
+        subtitle: 'password, transaction',
+        icon: <ShieldCheckIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+    {
+        id: 3,
+        title: 'Notification',
+        subtitle: 'notification setting',
+        icon: <BellIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+    {
+        id: 4,
+        title: 'Personalization',
+        subtitle: 'Personaliz setting',
+        icon: <PaintBrushIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+    {
+        id: 5,
+        title: 'Updated',
+        subtitle: 'Update version app',
+        icon: <RocketLaunchIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+]
+
+export const general = [
+    {
+        id: 6,
+        title: 'coffe club',
+        subtitle: 'Activity and gift',
+        icon: <GiftIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+    {
+        id: 7,
+        title: 'Support',
+        subtitle: 'Conversation , calls , questions',
+        icon: <QuestionMarkCircleIcon color='#d1d5db' size={25} strokeWidth={'2'} />
+    },
+]
+
