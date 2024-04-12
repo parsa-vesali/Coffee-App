@@ -12,6 +12,7 @@ export default function HomeScreen() {
 
     const [activeCategory, setActiveCategory] = useState(1)
     const navigation = useNavigation()
+
     return (
         <View className="flex-1 relative bg-slate-950 ">
             <StatusBar style='light' />

@@ -19,100 +19,114 @@ const ProductScreen = (props) => {
 
 
     return (
-        <ScrollView className='flex-1 relative bg-slate-950 '>
-            <SafeAreaView>
-                <ImageBackground
-                    className=" justify-between"
-                    source={item.image}
-                    style={{ height: hp(50) }}
-                    imageStyle={{
-                        borderRadius: hp(4)
-                    }}
-                >
-                    <View className="flex-row justify-between items-center p-4">
-                        <TouchableOpacity onPress={() => navigation.goBack()}
-                            className="bg-orange-400 p-1 rounded-lg ">
-                            <ChevronLeftIcon size={25} color='#fff' strokeWidth='3' />
-                        </TouchableOpacity>
-                        <TouchableOpacity className="">
-                            <HeartIcon size={30} color='#fff' strokeWidth='2' />
-                        </TouchableOpacity>
-                    </View>
+        <>
+            <ScrollView className='flex-1 relative bg-slate-950 '>
+                <SafeAreaView>
+                    <ImageBackground
+                        className=" justify-between"
+                        source={item.image}
+                        style={{ height: hp(50) }}
+                        imageStyle={{
+                            borderRadius: hp(4)
+                        }}
+                    >
+                        <View className="flex-row justify-between items-center p-4">
+                            <TouchableOpacity onPress={() => navigation.goBack()}
+                                className="bg-orange-400 p-1 rounded-lg ">
+                                <ChevronLeftIcon size={25} color='#fff' strokeWidth='3' />
+                            </TouchableOpacity>
+                            <TouchableOpacity className="">
+                                <HeartIcon size={30} color='#fff' strokeWidth='2' />
+                            </TouchableOpacity>
+                        </View>
 
 
-                    <View className="overflow-hidden" style={{ borderRadius: hp(4) }}>
-                        <BlurView intensity={90} className='p-4 flex-row justify-between' tint='dark'>
-                            <View>
-                                <Text className="text-3xl font-bold mb-1 text-white">
-                                    {item.name}
-                                </Text>
-                                <Text className="text-xl font-semibold text-gray-300">
-                                    {item.des}
-                                </Text>
-                                <View className="flex-row items-center mt-2">
-                                    <StarIcon color='#fb923c' size={20} />
-                                    <Text className="text-white text-base ml-1 font-semibold">{item.rating}</Text>
-                                </View>
-                            </View>
-                            <View className="w-[35%] justify-between">
-                                <View className="flex-row justify-between">
-                                    <View className="p-2 bg-black/70 rounded-lg w-15 h-15 justify-center items-center">
-                                        <HandThumbUpIcon color='#fb923c' />
-                                        <Text className="text-white text-sm ">Coffee</Text>
-                                    </View>
-                                    <View className="p-2 bg-black/70 rounded-lg w-15 h-15 justify-center items-center">
-                                        <MapPinIcon color='#fb923c' />
-                                        <Text className="text-white text-sm "> Coffee</Text>
+                        <View className="overflow-hidden" style={{ borderRadius: hp(4) }}>
+                            <BlurView intensity={90} className='p-4 flex-row justify-between' tint='dark'>
+                                <View>
+                                    <Text className="text-3xl font-bold mb-1 text-white">
+                                        {item.name}
+                                    </Text>
+                                    <Text className="text-xl font-semibold text-gray-300">
+                                        {item.des}
+                                    </Text>
+                                    <View className="flex-row items-center mt-2">
+                                        <StarIcon color='#fb923c' size={20} />
+                                        <Text className="text-white text-base ml-1 font-semibold">{item.rating}</Text>
                                     </View>
                                 </View>
-                                <View className="bg-black/70 p-1 rounded-l items-center justify-center">
-                                    <Text className="text-white text-sm">Medium roasted</Text>
+                                <View className="w-[35%] justify-between">
+                                    <View className="flex-row justify-between">
+                                        <View className="p-2 bg-black/70 rounded-lg w-15 h-15 justify-center items-center">
+                                            <HandThumbUpIcon color='#fb923c' />
+                                            <Text className="text-white text-sm ">Coffee</Text>
+                                        </View>
+                                        <View className="p-2 bg-black/70 rounded-lg w-15 h-15 justify-center items-center">
+                                            <MapPinIcon color='#fb923c' />
+                                            <Text className="text-white text-sm "> Coffee</Text>
+                                        </View>
+                                    </View>
+                                    <View className="bg-black/70 p-1 rounded-l items-center justify-center">
+                                        <Text className="text-white text-sm">Medium roasted</Text>
+                                    </View>
                                 </View>
-                            </View>
-                        </BlurView>
-                    </View>
+                            </BlurView>
+                        </View>
 
 
-                </ImageBackground>
+                    </ImageBackground>
 
 
-                <View className="px-4">
-                    <Text className="text-white text-2xl mb-2 mt-4">
-                        Description :
-                    </Text>
-                    <Text numberOfLines={3} className="text-white tracking-wide ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsum impedit, minus expedita veniam vel molestias iure. Dolorem, natus sequi. Lorem ipsum....
-                    </Text>
-
-                    <View>
+                    <View className="px-4">
                         <Text className="text-white text-2xl mb-2 mt-4">
-                            Size :
+                            Description :
                         </Text>
-                        <View className="flex-row justify-between mt-4">
-                            {
-                                sizes.map((size, index) => (
-                                    <TouchableOpacity
-                                        onPress={() => setActiveSize(size)}
-                                        key={index}
-                                        className="border  px-12 py-1 rounded-lg bg-white/10"
-                                        style={[{
-                                            backgroundColor: "#111",
-                                        },
-                                        activeSize == size && {
-                                            borderColor: "#f97316"
-                                        }
-                                        ]}
-                                    >
-                                        <Text className="text-white text-lg">{size}</Text>
-                                    </TouchableOpacity>
-                                ))
-                            }
+                        <Text numberOfLines={3} className="text-white tracking-wide ">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsum impedit, minus expedita veniam vel molestias iure. Dolorem, natus sequi. Lorem ipsum....
+                        </Text>
 
+                        <View>
+                            <Text className="text-white text-2xl mb-2 mt-4">
+                                Size :
+                            </Text>
+                            <View className="flex-row justify-between mt-4">
+                                {
+                                    sizes.map((size, index) => (
+                                        <TouchableOpacity
+                                            onPress={() => setActiveSize(size)}
+                                            key={index}
+                                            className="border  px-12 py-1 rounded-lg bg-white/10"
+                                            style={[{
+                                                backgroundColor: "#111",
+                                            },
+                                            activeSize == size && {
+                                                borderColor: "#f97316"
+                                            }
+                                            ]}
+                                        >
+                                            <Text className="text-white text-lg">{size}</Text>
+                                        </TouchableOpacity>
+                                    ))
+                                }
+
+                            </View>
                         </View>
                     </View>
+                </SafeAreaView>
+            </ScrollView>
+            <SafeAreaView className="bg-slate-950 p-4 flex-row justify-between items-center">
+                <View>
+                    <Text className="text-white text-2xl">Price :</Text>
+                    <View className="flex-row">
+                        <Text className="text-orange-500 text-xl">$</Text>
+                        <Text className="text-white ml-1 text-xl">{item.price}</Text>
+                    </View>
                 </View>
+                <TouchableOpacity className="bg-orange-500 w-40 p-3 items-center justify-center rounded-lg">
+                    <Text className="text-white text-xl font-bold">Buy Now</Text>
+                </TouchableOpacity>
             </SafeAreaView>
-        </ScrollView>
+        </>
     )
 }
 
