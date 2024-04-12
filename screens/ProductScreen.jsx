@@ -81,8 +81,8 @@ const ProductScreen = (props) => {
                         <Text className="text-white text-2xl mb-2 mt-4">
                             Description :
                         </Text>
-                        <Text numberOfLines={3} className="text-white tracking-wide ">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsum impedit, minus expedita veniam vel molestias iure. Dolorem, natus sequi. Lorem ipsum....
+                        <Text numberOfLines={5} className="text-white tracking-widest ">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit natus odio beatae alias architecto laudantium veniam eum iusto laboriosam quas ut nihil nesciunt ratione qui, impedit necessitatibus esse vitae tenetur?
                         </Text>
 
                         <View>
@@ -114,7 +114,7 @@ const ProductScreen = (props) => {
                     </View>
                 </SafeAreaView>
             </ScrollView>
-            <SafeAreaView className="bg-slate-950 p-4 flex-row justify-between items-center">
+            <SafeAreaView className="bg-slate-950 p-3 flex-row justify-between items-center">
                 <View>
                     <Text className="text-white text-2xl">Price :</Text>
                     <View className="flex-row">

@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, ImageBackground, StatusBar, Image } from 
 import React from 'react'
 import { ChevronLeftIcon, BellIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 const ProfileScreen = () => {
@@ -48,19 +49,19 @@ const ProfileScreen = () => {
                     </View>
                 </View>
                 <View className="mt-6 flex-row justify-between items-center flex-wrap">
-                    <View className="w-44 h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
+                    <View style={{ width: hp(21) }} className=" h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
                         <Image className='w-10 h-10' source={require('../assets/image/add.png')} />
                         <Text className="text-white text-lg font-bold">Invite 2 people</Text>
                     </View>
-                    <View className="w-44 h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
+                    <View style={{ width: hp(21) }} className=" h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
                         <Image className='w-10 h-10' source={require('../assets/image/coffee-cup (1).png')} />
                         <Text className="text-white text-lg font-bold">First order</Text>
                     </View>
-                    <View className="w-44 h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
+                    <View style={{ width: hp(21) }} className=" h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
                         <Image className='w-10 h-10' source={require('../assets/image/verified.png')} />
                         <Text className="text-white text-lg font-bold">Complete </Text>
                     </View>
-                    <View className="w-44 h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
+                    <View style={{ width: hp(21) }} className=" h-20 bg-cyan-600 mb-4 rounded-lg flex-row justify-center items-center">
                         <Image className='w-10 h-10' source={require('../assets/image/coffee-cup.png')} />
                         <Text className="text-white text-lg font-bold">buy coffee</Text>
                     </View>

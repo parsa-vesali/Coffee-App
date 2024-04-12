@@ -28,7 +28,7 @@ export default function WellcomeScreen() {
       <StatusBar style='light' />
       <Animated.View className="rounded-full bg-white/20" style={{ padding: ring2padding }}>
         <Animated.View className="rounded-full bg-white/20" style={{ padding: ring1padding }}>
-          <Image className="rounded-full" source={require('../assets/image/cup-coffee.png')} style={{ width: hp(10), height: hp(10) }} />
+          <Image className="rounded-full" source={require('../assets/image/coffee-beans.png')} style={{ width: hp(10), height: hp(10) }} />
         </Animated.View>
       </Animated.View >
 

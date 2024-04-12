@@ -85,7 +85,7 @@ export default function HomeScreen() {
                         coffeeItems.map(item => (
                             <View key={item.id} className="mb-5 rounded-xl overflow-hidden">
                                 <BlurView style={{ padding: hp(1) }} intensity={95} tint='dark' >
-                                    <TouchableOpacity >
+                                    <TouchableOpacity onPress={() => navigation.navigate('Product', { ...item })} >
                                         <Image source={item.image} className="rounded-xl" style={{ height: hp(19), width: hp(19) }} />
                                         <View className="absolute ring-0 rounded-xl overflow-hidden">
                                             <BlurView className="flex-row" style={{ padding: hp(.5) }} tint='dark' intensity={70}>
