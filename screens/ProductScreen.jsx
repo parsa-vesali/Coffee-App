@@ -48,7 +48,7 @@ const ProductScreen = (props) => {
                                     <Text className="text-white text-base ml-1 font-semibold">{item.rating}</Text>
                                 </View>
                             </View>
-                            <View className="w-[35%]">
+                            <View className="w-[35%] justify-between">
                                 <View className="flex-row justify-between">
                                     <View className="p-2 bg-black rounded-lg w-15 h-15 justify-center items-center">
                                         <HandThumbUpIcon color='#fb923c' />
@@ -59,8 +59,8 @@ const ProductScreen = (props) => {
                                         <Text className="text-white text-sm "> Coffee</Text>
                                     </View>
                                 </View>
-                                <View className="bg-black p-1">
-                                    <Text className="text-white">Medium roasted</Text>
+                                <View className="bg-black p-1 rounded-l items-center justify-center">
+                                    <Text className="text-white text-sm">Medium roasted</Text>
                                 </View>
                             </View>
                         </BlurView>
