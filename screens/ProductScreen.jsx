@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, ScrollView, ImageBackground, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ChevronLeftIcon, HeartIcon, } from "react-native-heroicons/outline";
@@ -11,7 +11,13 @@ import { BlurView } from 'expo-blur';
 
 const ProductScreen = (props) => {
     const navigation = useNavigation()
+    const sizes = [
+        'S', 'M', 'L'
+    ]
     const item = props.route.params
+    const [activeSize, setActiveSize] = useState('S')
+
+
     return (
         <ScrollView className='flex-1 relative bg-slate-950 '>
             <SafeAreaView>
@@ -50,16 +56,16 @@ const ProductScreen = (props) => {
                             </View>
                             <View className="w-[35%] justify-between">
                                 <View className="flex-row justify-between">
-                                    <View className="p-2 bg-black rounded-lg w-15 h-15 justify-center items-center">
+                                    <View className="p-2 bg-black/70 rounded-lg w-15 h-15 justify-center items-center">
                                         <HandThumbUpIcon color='#fb923c' />
                                         <Text className="text-white text-sm ">Coffee</Text>
                                     </View>
-                                    <View className="p-2 bg-black rounded-lg w-15 h-15 justify-center items-center">
+                                    <View className="p-2 bg-black/70 rounded-lg w-15 h-15 justify-center items-center">
                                         <MapPinIcon color='#fb923c' />
                                         <Text className="text-white text-sm "> Coffee</Text>
                                     </View>
                                 </View>
-                                <View className="bg-black p-1 rounded-l items-center justify-center">
+                                <View className="bg-black/70 p-1 rounded-l items-center justify-center">
                                     <Text className="text-white text-sm">Medium roasted</Text>
                                 </View>
                             </View>
@@ -68,6 +74,43 @@ const ProductScreen = (props) => {
 
 
                 </ImageBackground>
+
+
+                <View className="px-4">
+                    <Text className="text-white text-2xl mb-2 mt-4">
+                        Description :
+                    </Text>
+                    <Text numberOfLines={3} className="text-white tracking-wide ">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsum impedit, minus expedita veniam vel molestias iure. Dolorem, natus sequi. Lorem ipsum....
+                    </Text>
+
+                    <View>
+                        <Text className="text-white text-2xl mb-2 mt-4">
+                            Size :
+                        </Text>
+                        <View className="flex-row justify-between mt-4">
+                            {
+                                sizes.map((size, index) => (
+                                    <TouchableOpacity
+                                        onPress={() => setActiveSize(size)}
+                                        key={index}
+                                        className="border  px-12 py-1 rounded-lg bg-white/10"
+                                        style={[{
+                                            backgroundColor: "#111",
+                                        },
+                                        activeSize == size && {
+                                            borderColor: "#f97316"
+                                        }
+                                        ]}
+                                    >
+                                        <Text className="text-white text-lg">{size}</Text>
+                                    </TouchableOpacity>
+                                ))
+                            }
+
+                        </View>
+                    </View>
+                </View>
             </SafeAreaView>
         </ScrollView>
     )
